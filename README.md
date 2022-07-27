@@ -37,5 +37,6 @@ The application will also color code the time slots to display past events, the 
 
 A link to the deployed application can be found at the following link:
 
+https://lucasz10.github.io/Project-Day-Planner/
 
 ![This is the current build from 7.26.](./Assets/images/_C__Users_Zach_Documents_Coding%2520Bootcamp_Weekly%2520Challenges_Project-Day-Planner_index.html.png)
