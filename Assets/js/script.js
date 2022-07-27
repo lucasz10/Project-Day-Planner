@@ -1,22 +1,19 @@
 var currentDay = $("#currentDay"); //Variable to store current date
-var btnEl = $('.saveBtn'); //Variable to add event listener to
-
+var saveBtn = $('.saveBtn'); //Variable to add event listener to
 var currentTime; // Variable to store current time
-
 
 // Function checks current date and changes p element in header to match current date
 
 function dateToday(){
-    $(currentDay).text(moment().format('MMM Do, YYYY'));
-    currentTime = moment().set(); // Retrieves current hour value
-};
 
+    $(currentDay).text(moment().format('MMM Do, YYYY'));
+    currentTime = moment().hour('hA'); // Retrieves current hour value
+
+};
 
 // Function Compares current time with time block hour values and changes background accordingly
 
 function compareTime() {
-
-
 
     $('.row').each(function() {
 
@@ -35,9 +32,24 @@ function compareTime() {
 
 };
 
+function storeRetrieve() {
 
+    $(".time-block").each(function() {
+        var projKey = $(this).attr("id");
+        var projValue = localStorage.getItem(projKey);
+        $(this).val(projValue);
+    })
 
+};
 
+saveBtn.on("click", function() {
 
+    var projKey = $(this).siblings(".time-block").attr("id"); // Retrieves ID for time block
+    var projValue = $(this).siblings(".time-block").val(); // Retrieves text entry for time block
+    localStorage.setItem(projKey, projValue); // Stores entry to local storage
+
+});
+
+storeRetrieve();
 dateToday();
 compareTime();
